@@ -1,0 +1,21 @@
+<mat-card class="character-card" appearance="outlined">
+  <mat-card-header>
+    <mat-card-title>{{character.name}} ({{character.status}})</mat-card-title>
+    <mat-card-subtitle>{{character.species}}</mat-card-subtitle>
+  </mat-card-header>
+  <img class="character-card-image" mat-card-image [src]="character.image" alt="Photo of {{character.name}}">
+  <mat-card-content>
+    <p>
+      From: {{character.origin.name}}
+    </p>
+  </mat-card-content>
+  <mat-card-actions class="character-card-actions">
+    @if (character.id >= 1000) {
+      <button mat-raised-button>EDIT</button>
+      <button mat-raised-button color="warn" (click)="onDelete(character.id)">DELETE</button>
+    } @else {
+      <button mat-raised-button disabled>EDIT</button>
+      <button mat-raised-button color="warn" disabled>DELETE</button>
+    }
+  </mat-card-actions>
+</mat-card>

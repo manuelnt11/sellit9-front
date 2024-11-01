@@ -1,0 +1,36 @@
+<div class="characters-table">
+  <header class="characters-table-header">
+    <h3>Characters</h3>
+    <!-- mat-form-field>
+      <input matInput placeholder="Search" (input)="search($event.target.value)">
+    </mat-form-field -->
+    <button mat-raised-button (click)="openNewCharacterForm()">
+      <mat-icon>library_add</mat-icon>
+      Add character
+    </button>
+  </header>
+
+  <div class="characters-table-content">
+    @if (charactersState.state().status === 'loading') {
+      <mat-spinner></mat-spinner>
+    } @else {
+      @for (character of charactersState.state().characters; track character) {
+        <app-character-card [character]=character></app-character-card>
+      }
+    }
+  </div>
+
+  <footer class="characters-table-footer">
+    @if(charactersState.state().page > 1) {
+      <button mat-raised-button (click)="setPage(charactersState.state().page - 1)">Previous</button>
+    } @else {
+      <button mat-raised-button disabled>Previous</button>
+    }
+    {{charactersState.state().page}} of {{charactersState.state().maxPage}}
+    @if(charactersState.state().page < 43) {
+      <button mat-raised-button (click)="setPage(charactersState.state().page + 1)">Next</button>
+    } @else {
+      <button mat-raised-button disabled>Next</button>
+    }
+  </footer>
+</div>

@@ -1,0 +1,34 @@
+
+<h2 mat-dialog-title>Describe new character</h2>
+<mat-dialog-content>
+  <form #NewCharacterForm="ngForm" (ngSubmit)="onSubmit(NewCharacterForm)">
+    <mat-form-field>
+      <mat-label>Name</mat-label>
+      <input matInput name="name" ngModel />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Status</mat-label>
+      <mat-select name="status" ngModel>
+        <mat-option value="Alive">Alive</mat-option>
+        <mat-option value="Dead">Dead</mat-option>
+        <mat-option value="unknown">unknown</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Origin</mat-label>
+      <input matInput name="origin" ngModel />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Species</mat-label>
+      <input matInput name="species" ngModel />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Image Url</mat-label>
+      <input matInput name="image" ngModel />
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-raised-button (click)="onCancel()">Cancel</button>
+  <button mat-raised-button (click)="onSubmit(NewCharacterForm)" cdkFocusInitial>Ok</button>
+</mat-dialog-actions>
