@@ -1,0 +1,10 @@
+{
+  "hosting": {
+    "public": "dist/sellit9-front",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}
