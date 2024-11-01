@@ -22,7 +22,7 @@ export class CharactersService {
     return this.http.delete<void>(`${this.baseUrl}/characters/${id}`);
   }
 
-  updateCharacter(id: number, character: Partial<Character>): Observable<Character> {
-    return this.http.put<Character>(`${this.baseUrl}/characters/${id}`, character);
+  updateCharacter(character: Partial<Character>): Observable<Character> {
+    return this.http.patch<Character>(`${this.baseUrl}/characters`, character);
   }
 }

@@ -1,13 +1,13 @@
 <h2 mat-dialog-title>Describe new character</h2>
 <mat-dialog-content>
-  <form #NewCharacterForm="ngForm" (ngSubmit)="onSubmit(NewCharacterForm)">
+  <form [formGroup]="editCharacterForm" (ngSubmit)="onSubmit()">
     <mat-form-field>
       <mat-label>Name</mat-label>
-      <input matInput name="name" ngModel />
+      <input matInput formControlName="name" />
     </mat-form-field>
     <mat-form-field>
       <mat-label>Status</mat-label>
-      <mat-select name="status" ngModel>
+      <mat-select formControlName="status">
         <mat-option value="Alive">Alive</mat-option>
         <mat-option value="Dead">Dead</mat-option>
         <mat-option value="unknown">unknown</mat-option>
@@ -15,19 +15,19 @@
     </mat-form-field>
     <mat-form-field>
       <mat-label>Origin</mat-label>
-      <input matInput name="origin" ngModel />
+      <input matInput formControlName="origin" />
     </mat-form-field>
     <mat-form-field>
       <mat-label>Species</mat-label>
-      <input matInput name="species" ngModel />
+      <input matInput formControlName="species" />
     </mat-form-field>
     <mat-form-field>
       <mat-label>Image Url</mat-label>
-      <input matInput name="image" ngModel />
+      <input matInput formControlName="image" />
     </mat-form-field>
   </form>
 </mat-dialog-content>
 <mat-dialog-actions>
   <button mat-raised-button color="warn" (click)="onCancel()">Cancel</button>
-  <button mat-raised-button (click)="onSubmit(NewCharacterForm)" cdkFocusInitial>Ok</button>
+  <button mat-raised-button (click)="onSubmit()" cdkFocusInitial>Ok</button>
 </mat-dialog-actions>

@@ -11,8 +11,8 @@
   </mat-card-content>
   <mat-card-actions class="character-card-actions">
     @if (character.id >= 1000) {
-      <button mat-raised-button>EDIT</button>
-      <button mat-raised-button color="warn" (click)="onDelete(character.id)">DELETE</button>
+      <button mat-raised-button (click)="openNewCharacterForm()">EDIT</button>
+      <button mat-raised-button color="warn" (click)="onDelete()">DELETE</button>
     } @else {
       <button mat-raised-button disabled>EDIT</button>
       <button mat-raised-button color="warn" disabled>DELETE</button>

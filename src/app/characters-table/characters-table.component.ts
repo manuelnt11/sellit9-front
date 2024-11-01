@@ -30,8 +30,10 @@ export class CharactersTableComponent {
 
   openNewCharacterForm(): void {
     const dialogRef = this.dialog.open(NewCharacterFormComponent);
-    dialogRef.afterClosed().subscribe(() => {
-      this.charactersState.changePage$.next(1);
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
+        this.charactersState.changePage$.next(1);
+      }
     });
   }
 }

@@ -5,7 +5,7 @@ import {
   MatDialogActions,
   MatDialogContent,
   MatDialogRef,
-  MatDialogTitle
+  MatDialogTitle,
 } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -38,19 +38,21 @@ export class NewCharacterFormComponent {
   private charactersService = inject(CharactersService);
 
   onCancel(): void {
-    this.dialogRef.close();
+    this.dialogRef.close(false);
   }
 
   onSubmit(form: NgForm) {
     console.log('Your form data:', form.value);
-    this.charactersService.addCharacter({
-      name: form.value.name,
-      status: form.value.status,
-      origin: {name: form.value.origin, url: ''},
-      species: form.value.species,
-      image: form.value.image,
-    }).subscribe(() => {
-      this.dialogRef.close();
-    });
+    this.charactersService
+      .addCharacter({
+        name: form.value.name,
+        status: form.value.status,
+        origin: { name: form.value.origin, url: '' },
+        species: form.value.species,
+        image: form.value.image,
+      })
+      .subscribe(() => {
+        this.dialogRef.close(true);
+      });
   }
 }
